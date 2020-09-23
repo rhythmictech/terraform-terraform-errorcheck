@@ -47,28 +47,28 @@ Exception: Your assertion is not valid
 ```
 
 ## About
-This module exists because Terraform's native ability to throw errors at plan time is extremely limited if your provider doesn't do plan-time validation. Using this module you can use any arbitrary assertion to do plan-time validation. Our particular use-case was making sure the targetted environment matches the workspace.
+This module exists because Terraform's native ability to throw errors at plan time is extremely limited if your provider doesn't do plan-time validation. Using this module you can use any arbitrary assertion to do plan-time validation. Our particular use-case was making sure the targeted environment matches the workspace.
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
 
-| Name | Version |
-|------|---------|
+| Name      | Version    |
+|-----------|------------|
 | terraform | >= 0.12.28 |
-| external | ~> 1.2 |
+| external  | ~> 1.2     |
 
 ## Providers
 
-| Name | Version |
-|------|---------|
-| external | ~> 1.2 |
+| Name     | Version |
+|----------|---------|
+| external | ~> 1.2  |
 
 ## Inputs
 
-| Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
-| assert | Make your assertion here so that it resolves to a boolean value. If this value is false, the module will throw an error. | `bool` | n/a | yes |
-| error\_message | Error message to return if the assertion fails | `string` | `"Assertion failed"` | no |
+| Name           | Description                                                                                                              | Type     | Default              | Required |
+|----------------|--------------------------------------------------------------------------------------------------------------------------|----------|----------------------|:--------:|
+| assert         | Make your assertion here so that it resolves to a boolean value. If this value is false, the module will throw an error. | `bool`   | n/a                  |   yes    |
+| error\_message | Error message to return if the assertion fails                                                                           | `string` | `"Assertion failed"` |    no    |
 
 ## Outputs
 
