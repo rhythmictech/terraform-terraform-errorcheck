@@ -5,7 +5,7 @@ locals {
 }
 
 module "errorcheck_valid" {
-  source  = "rhythmictech/errorcheck"
+  source  = "rhythmictech/errorcheck/terraform"
   version = "~> 1.0.0-rc1"
 
   assert        = local.compare == local.testSuccess
@@ -13,7 +13,7 @@ module "errorcheck_valid" {
 }
 
 module "errorcheck_invalid" {
-  source  = "rhythmictech/errorcheck"
+  source  = "rhythmictech/errorcheck/terraform"
   version = "~> 1.0.0-rc1"
 
   assert        = local.compare == local.testFail
