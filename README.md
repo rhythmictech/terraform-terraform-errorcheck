@@ -52,23 +52,23 @@ This module exists because Terraform's native ability to throw errors at plan ti
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
 
-| Name      | Version    |
-|-----------|------------|
+| Name | Version |
+|------|---------|
 | terraform | >= 0.12.28 |
-| external  | ~> 1.2     |
+| external | ~> 1.2 |
 
 ## Providers
 
-| Name     | Version |
-|----------|---------|
-| external | ~> 1.2  |
+| Name | Version |
+|------|---------|
+| external | ~> 1.2 |
 
 ## Inputs
 
-| Name           | Description                                                                                                              | Type     | Default              | Required |
-|----------------|--------------------------------------------------------------------------------------------------------------------------|----------|----------------------|:--------:|
-| assert         | Make your assertion here so that it resolves to a boolean value. If this value is false, the module will throw an error. | `bool`   | n/a                  |   yes    |
-| error\_message | Error message to return if the assertion fails                                                                           | `string` | `"Assertion failed"` |    no    |
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| assert | Make your assertion here so that it resolves to a boolean value. If this value is false, the module will throw an error. | `bool` | n/a | yes |
+| error\_message | Error message to return if the assertion fails | `string` | `"Assertion failed"` | no |
 
 ## Outputs
 
