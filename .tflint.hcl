@@ -8,7 +8,7 @@ rule "terraform_deprecated_interpolation" {
 }
 
 rule "terraform_unused_declarations" {
-  enabled = true
+  enabled = false
 }
 
 rule "terraform_comment_syntax" {
