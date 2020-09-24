@@ -1,10 +1,21 @@
-
-module "example" {
-  source = "../.."
-
-  name = "test"
+locals {
+  compare     = "success"
+  testSuccess = "success"
+  testFail    = "fail"
 }
 
-output "example" {
-  value = module.example
+module "errorcheck_valid" {
+  source  = "rhythmictech/errorcheck/terraform"
+  version = "~> 1.0.0-rc1"
+
+  assert        = local.compare == local.testSuccess
+  error_message = "Your assertion is not valid"
+}
+
+module "errorcheck_invalid" {
+  source  = "rhythmictech/errorcheck/terraform"
+  version = "~> 1.0.0-rc1"
+
+  assert        = local.compare == local.testFail
+  error_message = "Your assertion is not valid"
 }
