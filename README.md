@@ -20,7 +20,7 @@ locals {
 
 module "errorcheck_valid" {
   source = "rhythmictech/errorcheck/terraform"
-  version = "~> 1.0.0-rc1"
+  version = "~> 1.0.0"
 
   assert = local.compare == local.testSuccess
   error_message = "Your assertion is not valid"
@@ -28,7 +28,7 @@ module "errorcheck_valid" {
 
 module "errorcheck_invalid" {
   source = "rhythmictech/errorcheck/terraform"
-  version = "~> 1.0.0-rc1"
+  version = "~> 1.0.0"
 
   assert = local.compare == local.testFail
   error_message = "Your assertion is not valid"
@@ -36,11 +36,7 @@ module "errorcheck_invalid" {
 ```
 Output:
 ```bash
-Error: failed to execute "python": Traceback (most recent call last):
-  File "./python/errorcheck.py", line 15, in <module>
-    raise Exception(DATA['error_message'])
-Exception: Your assertion is not valid
-
+  Error: failed to execute "/bin/sh": jq: error (at <stdin>:0): Your assertion is not valid
 
   on main.tf line 1, in data "external" "this":
    1: data "external" "this" {
@@ -54,26 +50,35 @@ This module exists because Terraform's native ability to throw errors at plan ti
 
 | Name | Version |
 |------|---------|
-| terraform | >= 0.12.28 |
-| external | ~> 1.2 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.12.28 |
+| <a name="requirement_external"></a> [external](#requirement\_external) | ~> 1.2 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| external | ~> 1.2 |
+| <a name="provider_external"></a> [external](#provider\_external) | ~> 1.2 |
+
+## Modules
+
+No modules.
+
+## Resources
+
+| Name | Type |
+|------|------|
+| [external_external.this](https://registry.terraform.io/providers/hashicorp/external/latest/docs/data-sources/external) | data source |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| assert | Make your assertion here so that it resolves to a boolean value. If this value is false, the module will throw an error. | `bool` | n/a | yes |
-| error\_message | Error message to return if the assertion fails | `string` | `"Assertion failed"` | no |
+| <a name="input_assert"></a> [assert](#input\_assert) | Make your assertion here so that it resolves to a boolean value. If this value is false, the module will throw an error. | `bool` | n/a | yes |
+| <a name="input_error_message"></a> [error\_message](#input\_error\_message) | Error message to return if the assertion fails | `string` | `"Assertion failed"` | no |
 
 ## Outputs
 
-No output.
-
+No outputs.
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 ## The Giants Underneath this Module

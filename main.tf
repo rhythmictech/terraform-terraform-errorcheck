@@ -1,5 +1,5 @@
 data "external" "this" {
-  program = ["python", "${path.module}/python/errorcheck.py"]
+  program = ["/bin/sh", "-efu", "${path.module}/bin/errorcheck.sh"]
 
   query = {
     assert        = var.assert
