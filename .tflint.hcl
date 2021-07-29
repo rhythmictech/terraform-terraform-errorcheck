@@ -1,6 +1,5 @@
 config {
   module     = true
-  deep_check = false
 }
 
 rule "terraform_deprecated_interpolation" {
@@ -42,4 +41,9 @@ rule "terraform_required_version" {
 
 rule "terraform_required_providers" {
   enabled = true
+}
+
+plugin "aws" {
+  enabled = true
+  deep_check = true
 }
