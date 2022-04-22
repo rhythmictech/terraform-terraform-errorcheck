@@ -1,11 +1,10 @@
+exclude: ".terraform"
 repos:
   - repo: https://github.com/antonbabenko/pre-commit-terraform
-    rev: v1.50.0
+    rev: v1.68.0
     hooks:
       - id: terraform_docs
         always_run: true
-        args:
-          - --args=--sort-by-required
       - id: terraform_fmt
       - id: terraform_tflint
         alias: terraform_tflint_nocreds
@@ -35,8 +34,29 @@ repos:
         verbose: true
         files: \.tf(vars)?$
         exclude: examples
+      - id: tflock
+        name: provider_locks
+        entry: |
+          bash -c '
+            AWS_DEFAULT_REGION=us-east-1
+            declare -a DIRS
+            for FILE in "$@"
+            do
+              DIRS+=($(dirname "$FILE"))
+            done
+            for DIR in $(printf "%s\n" "${DIRS[@]}" | sort -u)
+            do
+              cd $(dirname "$FILE")
+              terraform providers lock -platform=windows_amd64 -platform=darwin_amd64 -platform=linux_amd64
+              cd ..
+            done
+          '
+        language: system
+        verbose: true
+        files: \.tf(vars)?$
+        exclude: examples
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.0.1
+    rev: v4.2.0
     hooks:
       - id: check-case-conflict
       - id: check-json
@@ -65,3 +85,5 @@ repos:
         args:
           - --markdown-linebreak-ext=md
         exclude: README.md
+ci:
+  skip: [terraform_docs, terraform_fmt, terraform_tflint, terraform_tfsec, tflock]
