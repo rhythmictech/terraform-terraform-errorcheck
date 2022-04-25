@@ -9,3 +9,9 @@ variable "error_message" {
   description = "Error message to return if the assertion fails"
   type        = string
 }
+
+variable "use_jq" {
+  default     = false
+  description = "Use jq to check for truthiness. Defaults to python"
+  type        = bool
+}

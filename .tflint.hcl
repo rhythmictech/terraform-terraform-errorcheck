@@ -1,6 +1,5 @@
 config {
   module     = true
-  deep_check = false
 }
 
 rule "terraform_deprecated_interpolation" {
@@ -8,7 +7,7 @@ rule "terraform_deprecated_interpolation" {
 }
 
 rule "terraform_unused_declarations" {
-  enabled = false
+  enabled = true
 }
 
 rule "terraform_comment_syntax" {
@@ -37,7 +36,7 @@ rule "terraform_naming_convention" {
 }
 
 rule "terraform_required_version" {
-  enabled = true
+  enabled = false
 }
 
 rule "terraform_required_providers" {

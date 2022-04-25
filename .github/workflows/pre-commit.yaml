@@ -2,7 +2,7 @@
 name: pre-commit-check
 on:
   push:
-    branches: -- main
+    branches:
       - master
       - prod
       - develop
@@ -16,14 +16,10 @@ jobs:
         uses: actions/setup-python@v2
       - name: Install prerequisites
         run: ./bin/install-ubuntu.sh
-      - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v1
-        with:
-          terraform_version: ~0.12.29
       - name: initialize Terraform
         run: terraform init --backend=false
       - name: pre-commit
-        uses: pre-commit/action@v2.0.0
+        uses: pre-commit/action@v2.0.3
         env:
           AWS_DEFAULT_REGION: us-east-1
           # many of these are covered by better reviewdog linters below
@@ -32,12 +28,3 @@ jobs:
             no-commit-to-branch,
             terraform_tflint_nocreds,
             terraform_tfsec
-      - uses: stefanzweifel/git-auto-commit-action@v4
-        if: ${{ failure() }}
-        with:
-          commit_message: Apply automatic changes
-          commit_options: "--no-verify"
-          # Optional commit user and author settings
-          commit_user_name: Linter Bot
-          commit_user_email: noreply@rhythmictech.com
-          commit_author: Linter Bot <actions@github.com>
