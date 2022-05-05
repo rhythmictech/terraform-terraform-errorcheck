@@ -5,17 +5,14 @@ locals {
 }
 
 module "errorcheck_valid" {
-  source  = "rhythmictech/errorcheck/terraform"
-  version = "~> 1.0.0-rc1"
+  source = "../.."
 
   assert        = local.compare == local.testSuccess
   error_message = "Your assertion is not valid"
 }
 
 module "errorcheck_invalid" {
-  source  = "rhythmictech/errorcheck/terraform"
-  version = "~> 1.0.0-rc1"
-
+  source        = "../.."
   assert        = local.compare == local.testFail
   error_message = "Your assertion is not valid"
 }

@@ -51,13 +51,13 @@ This module exists because Terraform's native ability to throw errors at plan ti
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.12.28 |
-| <a name="requirement_external"></a> [external](#requirement\_external) | ~> 1.2 |
+| <a name="requirement_external"></a> [external](#requirement\_external) | >= 2.2.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_external"></a> [external](#provider\_external) | ~> 1.2 |
+| <a name="provider_external"></a> [external](#provider\_external) | 2.2.2 |
 
 ## Modules
 
@@ -75,6 +75,7 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_assert"></a> [assert](#input\_assert) | Make your assertion here so that it resolves to a boolean value. If this value is false, the module will throw an error. | `bool` | n/a | yes |
 | <a name="input_error_message"></a> [error\_message](#input\_error\_message) | Error message to return if the assertion fails | `string` | `"Assertion failed"` | no |
+| <a name="input_use_jq"></a> [use\_jq](#input\_use\_jq) | Use jq to check for truthiness. Defaults to python | `bool` | `false` | no |
 
 ## Outputs
 
