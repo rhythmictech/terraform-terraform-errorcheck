@@ -79,7 +79,12 @@ No modules.
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_asset"></a> [asset](#output\_asset) | Make your assertion here so that it resolves to a boolean value. If this value is false, the module will throw an error. |
+| <a name="output_error_message"></a> [error\_message](#output\_error\_message) | Error message to return if the assertion fails |
+| <a name="output_result"></a> [result](#output\_result) | Result of data source |
+| <a name="output_use_jq"></a> [use\_jq](#output\_use\_jq) | Use jq to check for truthiness. Defaults to python |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 ## The Giants Underneath this Module
