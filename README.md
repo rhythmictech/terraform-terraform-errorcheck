@@ -1,6 +1,7 @@
 # terraform-terraform-errorcheck
 A Terraform module that throws an error at plan time if an arbitrary assertion fails.
 
+[![tests](https://github.com/rhythmictech/terraform-terraform-errorcheck/actions/workflows/test.yaml/badge.svg)](https://github.com/rhythmictech/terraform-terraform-errorcheck/actions/workflows/test.yaml)
 [![tflint](https://github.com/rhythmictech/terraform-terraform-errorcheck/workflows/tflint/badge.svg?branch=master&event=push)](https://github.com/rhythmictech/terraform-terraform-errorcheck/actions?query=workflow%3Atflint+event%3Apush+branch%3Amaster)
 [![tfsec](https://github.com/rhythmictech/terraform-terraform-errorcheck/workflows/tfsec/badge.svg?branch=master&event=push)](https://github.com/rhythmictech/terraform-terraform-errorcheck/actions?query=workflow%3Atfsec+event%3Apush+branch%3Amaster)
 [![yamllint](https://github.com/rhythmictech/terraform-terraform-errorcheck/workflows/yamllint/badge.svg?branch=master&event=push)](https://github.com/rhythmictech/terraform-terraform-errorcheck/actions?query=workflow%3Ayamllint+event%3Apush+branch%3Amaster)
