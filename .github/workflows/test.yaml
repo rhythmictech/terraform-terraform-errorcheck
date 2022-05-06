@@ -1,0 +1,41 @@
+---
+name: tflint
+on:
+  push:
+    branches:
+      - main
+      - master
+      - prod
+      - develop
+
+jobs:
+  tflint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install prerequisites
+        run: ./bin/install-ubuntu.sh
+
+      - name: Valid example should succeed
+        run: |
+          cd examples/basic
+          terraform init --backend=false
+          terraform apply -auto-approve
+
+      - name: Invalid example should fail
+        run: |
+          cd examples/invalid
+          terraform init --backend=false
+          {
+            terraform apply -auto-approve
+          } || {
+            exit_code=$?
+          }
+
+          if [ $exit_code -eq 1 ]; then
+            echo "test passes"
+            exit 0
+          else
+            echo "failed to fail"
+            exit 1
+          fi
