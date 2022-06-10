@@ -76,6 +76,7 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_assert"></a> [assert](#input\_assert) | Make your assertion here so that it resolves to a boolean value. If this value is false, the module will throw an error. | `bool` | n/a | yes |
 | <a name="input_error_message"></a> [error\_message](#input\_error\_message) | Error message to return if the assertion fails | `string` | `"Assertion failed"` | no |
+| <a name="input_python_program"></a> [python\_program](#input\_python\_program) | Python executable to call errorcheck with | `string` | `"python"` | no |
 | <a name="input_use_jq"></a> [use\_jq](#input\_use\_jq) | Use jq to check for truthiness. Defaults to python | `bool` | `false` | no |
 
 ## Outputs
